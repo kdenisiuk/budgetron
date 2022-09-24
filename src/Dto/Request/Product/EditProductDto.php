@@ -10,6 +10,8 @@ class EditProductDto
 
     private string $category;
 
+    private float $price;
+
     public function getId(): int
     {
         return $this->id;
@@ -38,5 +40,15 @@ class EditProductDto
     public function setCategory(string $category): void
     {
         $this->category = $category;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
     }
 }

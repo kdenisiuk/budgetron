@@ -23,7 +23,8 @@ class ProductService
 
         $product = new Product(
             $dto->getName(),
-            $dto->getCategory()
+            $dto->getCategory(),
+            $dto->getPrice()
         );
 
         $this->entityManager->persist($product);
