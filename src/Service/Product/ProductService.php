@@ -53,4 +53,10 @@ class ProductService
     {
         return $this->productRepository->getAllNotRemovedProducts();
     }
+
+    public function getSingleProduct(int $productId): Product
+    {
+
+        return $this->productRepository->getProductById($productId);
+    }
 }

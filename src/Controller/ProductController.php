@@ -62,7 +62,7 @@ class ProductController extends AbstractController
             return$this->redirectToRoute('app_product_getproductslist');
         }
 
-        return $this->renderForm('');
+        return $this->renderForm('Product/editProduct.html.twig', ['form' => $form]);
     }
 
     #[Route('product/list')]
@@ -70,6 +70,14 @@ class ProductController extends AbstractController
     {
         $list = $this->productService->getAllProducts();
         return $this->render('/Product/allProductsList.html.twig', ['list' => $list]);
+    }
+
+    #[Route('/getProduct/{productId}')]
+    public function getProduct(int $productId)
+    {
+        $product = $this->productService->getSingleProduct($productId);
+
+        return $this->render('Product/productDetails.html.twig', ['product' => $product]);
     }
 
 }

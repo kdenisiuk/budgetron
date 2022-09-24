@@ -1,3 +1,8 @@
+
+<style>
+    {{ source('css/base.css') }}
+</style>
+
 <table style="margin-left: 100px">
     <tr>
         <td><br><span>ulubione produkty</span></td>
@@ -9,11 +14,17 @@
         <td><br><span>raporty</span></td>
     </tr>
     <tr>
-        <td><br><span>dodawanie produktu</span></td>
+        <td><br><a href="{{ path('app_product_addproduct') }}">dodawanie produktu</a></td>
+    </tr>
+    <tr>
+        <td><br><a href="{{ path('app_product_getproductslist') }}">lista produktów</a></td>
     </tr>
 </table>
 
 {% block form %}
+{% endblock %}
+
+{% block details %}
 {% endblock %}
 
 {% block list %}

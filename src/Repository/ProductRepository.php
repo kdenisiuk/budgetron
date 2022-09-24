@@ -44,7 +44,7 @@ class ProductRepository extends ServiceEntityRepository
 
         return $this->createQueryBuilder('p')
             ->andWhere('p.id = :id')
-            ->andWhere('p.removed != false')
+            ->andWhere('p.removed != true')
             ->setParameter('id', $productId)
             ->getQuery()
             ->getOneOrNullResult();

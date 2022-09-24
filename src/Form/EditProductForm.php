@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -13,6 +14,9 @@ class EditProductForm extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('category', TextType::class)
-            ->add('price', TextType::class);
+            ->add('price', TextType::class)
+            ->add('submit', SubmitType::class)
+            ->setMethod('PATCH')
+            ->getForm();
     }
 }

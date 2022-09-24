@@ -19,8 +19,7 @@ class NewProductForm extends AbstractType
             ->add('price', TextType::class)
             ->add('submit', SubmitType::class)
             ->setMethod('POST')
-            ->getForm()
-        ;
+            ->getForm();
     }
 
     public function configureOptions(OptionsResolver $resolver)
