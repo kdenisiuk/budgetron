@@ -1,0 +1,22 @@
+{% extends 'View/menu.html.twig' %}
+
+{% block list %}
+    <table style="text-align: center; margin-left: auto; margin-right: auto; border: 1px solid black; border-collapse: collapse; width: 25%">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nazwa</th>
+                <th>kategoria</th>
+                <th>data dodania</th>
+            </tr>
+        </thead>
+        {% for item in list %}
+            <tr>
+                <td style="border: 1px solid black"><a href="">{{ item.id }}</a></td>
+                <td style="border: 1px solid black">{{ item.name }}</td>
+                <td style="border: 1px solid black">{{ item.category }}</td>
+                <td style="border: 1px solid black">{{ item.creationDate|date("m/d/Y") }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
