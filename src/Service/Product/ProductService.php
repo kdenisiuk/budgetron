@@ -23,7 +23,8 @@ class ProductService
 
         $product = new Product(
             $dto->getName(),
-            $dto->getCategory()
+            $dto->getCategory(),
+            $dto->getPrice()
         );
 
         $this->entityManager->persist($product);
@@ -51,5 +52,11 @@ class ProductService
     public function getAllProducts(): array
     {
         return $this->productRepository->getAllNotRemovedProducts();
+    }
+
+    public function getSingleProduct(int $productId): Product
+    {
+
+        return $this->productRepository->getProductById($productId);
     }
 }

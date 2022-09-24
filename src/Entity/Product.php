@@ -14,10 +14,12 @@ class Product
     public function __construct(
         string $name,
         string $category,
+        float $price
     )
     {
         $this->setName($name);
         $this->setCategory($category);
+        $this->setPrice($price);
 
         $this->setCreationDate(new DateTime());
         $this->setUpdateDate(new DateTime());
@@ -42,7 +44,10 @@ class Product
     private DateTimeInterface $updateDate;
 
     #[ORM\Column]
-    private ?bool $removed = null;
+    private bool $removed = false;
+
+    #[ORM\Column]
+    private float $price;
 
     public function getId(): int
     {
@@ -97,7 +102,7 @@ class Product
         return $this;
     }
 
-    public function isRemoved(): ?bool
+    public function isRemoved(): bool
     {
         return $this->removed;
     }
@@ -105,6 +110,18 @@ class Product
     public function setRemoved(bool $removed): self
     {
         $this->removed = $removed;
+
+        return $this;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

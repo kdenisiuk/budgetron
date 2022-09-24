@@ -1,22 +1,28 @@
 {% extends 'View/menu.html.twig' %}
 
 {% block list %}
-    <table style="text-align: center; margin-left: auto; margin-right: auto; border: 1px solid black; border-collapse: collapse; width: 25%">
+    <table class="productTable" style="text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse; width: 35%">
         <thead>
             <tr>
-                <th>id</th>
-                <th>nazwa</th>
-                <th>kategoria</th>
-                <th>data dodania</th>
+                <th style="border: 1px solid black">id</th>
+                <th style="border: 1px solid black">nazwa</th>
+                <th style="border: 1px solid black">cena</th>
+                <th style="border: 1px solid black">kategoria</th>
+                <th style="border: 1px solid black">data dodania</th>
             </tr>
         </thead>
         {% for item in list %}
             <tr>
-                <td style="border: 1px solid black"><a href="">{{ item.id }}</a></td>
-                <td style="border: 1px solid black">{{ item.name }}</td>
-                <td style="border: 1px solid black">{{ item.category }}</td>
-                <td style="border: 1px solid black">{{ item.creationDate|date("m/d/Y") }}</td>
+                <td><a href="{{ path('app_product_getproduct', {'productId': item.id}) }}">{{ item.id }}</a></td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.creationDate|date("m/d/Y") }}</td>
             </tr>
         {% endfor %}
+        <tr>
+            <td colspan="5" style="border: none"><br><a href="{{ path('app_product_addproduct') }}">dodaj nowy produkt</a></td>
+        </tr>
     </table>
+
 {% endblock %}

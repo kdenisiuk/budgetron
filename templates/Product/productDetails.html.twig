@@ -1,0 +1,14 @@
+{% extends 'View/menu.html.twig' %}
+
+{% block details %}
+    <table class="productTable">
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.creationDate|date("m/d/Y") }}</td>
+            <td><a href="{{ path('app_product_editproduct', {'productId': product.id}) }}">edytuj</a></td>
+        </tr>
+    </table>
+{% endblock %}
